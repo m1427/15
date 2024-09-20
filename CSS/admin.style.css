@@ -1,0 +1,51 @@
+.moe {
+   width: 36%;
+   height: 200px;
+   margin: auto;
+}
+.school  {
+   width: 25%;
+   height: 200px;
+   position: absolute;
+    left: 0;
+    top: 0;
+ }
+
+.first_div {
+    text-align: center;
+    vertical-align: overline;
+    align-items: center;   
+    overflow: hidden; 
+}
+
+
+/* picture end here */
+
+
+
+/* font start here */
+
+.h31{
+   height: 200px;
+   width: 33%;
+   font-size: 6mm;
+   position: absolute;
+   /*right: 0;*/
+   top: 0;
+}
+
+/* font end here */
+
+.a21 {
+   text-align: center;
+   margin: auto;
+   width: auto;
+   height: auto;
+}
+
+
+/*table*/  
+.th1,
+.th2 {
+   width: 50%;
+}

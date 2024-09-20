@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أيام أشهر التقويم الهجري</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-hijri/moment-hijri.min.js"></script>
+<style>
+    .list1 {
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <ul class="list1" id="days-list"></ul>
+
+    <script>
+        function displayDays() {
+            const daysList = document.getElementById('days-list');
+            daysList.innerHTML = ''; // مسح المحتوى السابق
+
+            const year = moment().iYear(); // السنة الهجرية الحالية
+
+            for (let month = 1; month <= 12; month++) {
+                const daysInMonth = moment(`${year}-${month}`, 'iYYYY-iM').iDaysInMonth();
+                const listItem = document.createElement('li');
+                listItem.innerText = `شهر ${month}: ${daysInMonth} يوم`;
+                daysList.appendChild(listItem);
+            }
+        }
+
+        // عرض الأيام عند تحميل الصفحة
+        window.onload = displayDays;
+
+        // عرض الأيام عند الضغط على الزر
+        document.getElementById('show-days').onclick = displayDays;
+    </script>
+</body>
+</html>

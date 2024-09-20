@@ -1,0 +1,63 @@
+.moe {
+    width: 36%;
+    height: 200px;
+    margin: auto;
+ }
+ .school  {
+    width: 25%;
+    height: 200px;
+    position: absolute;
+     left: 0;
+     top: 0;
+  }
+ 
+ .first_div {
+     text-align: center;
+     vertical-align: overline;
+     align-items: center;   
+     overflow: hidden; 
+ }
+
+ /* picture end here */
+
+
+/* font start here */
+body {
+    text-align: center;
+}
+
+.h31{
+    height: 200px;
+    width: 33%;
+    font-size: 5mm;
+    position: absolute;
+    right: 0;
+    top: 0;
+ }
+ 
+ /* font end here */
+ 
+
+   /* أنماط CSS للزر الطباعة */
+   .print-button {
+    margin-top: 10px;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 5mm;
+    background-color: #444;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}

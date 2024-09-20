@@ -1,0 +1,123 @@
+/* الأنماط العامة */
+body {
+    writing-mode: rtl  !important; /* وضع الكتابة من اليمين لليسار */
+    font-family: Arial, sans-serif; /* نوع الخط */
+}
+
+/* أنماط الحاويات */
+.first_div {
+    text-align: center; /* محاذاة النص في الوسط */
+    margin-top: 10px;
+    margin-bottom: 10px; /* المسافة السفلية */
+}
+
+.moe, .school {
+    width: 150px; /* عرض الحاويات */
+    height: 150px; /* ارتفاع تلقائي */
+}
+
+/* أنماط الجدول */
+table {
+    width: 100%; /* عرض الجدول */
+    border-collapse: collapse; /* دمج الحدود */
+    margin: 20px 0; /* المسافة حول الجدول */
+    margin-bottom: 5px;
+}
+
+th, td {
+    border: 1px solid #000000; /* حدود الخلايا */
+    padding: 8px; /* حشوة الخلايا */
+    text-align: right; /* محاذاة النص في الوسط */
+}
+
+th {
+    background-color: #000000; /* خلفية رأس الجدول */
+    font-size: 14px; /* حجم الخط */
+}
+
+tr:nth-child(even) {
+    background-color: #000000; /* خلفية الصفوف الزوجية */
+}
+
+/* أنماط الخطوط */
+.h31 {
+    font-size: 17px; /* حجم الخط */
+    margin: 0; /* إزالة الهوامش */
+    height: 200px; /* ارتفاع العنصر */
+    width: 33%; /* عرض العنصر */
+    font-family: "Calibri,Candara,Arial,sans-serif";
+    position: absolute; /* تحديد موضع العنصر */
+    right: 0; /* المسافة من اليمين */
+    top: 0; /* المسافة من الأعلى */
+}
+
+/* أنماط الأزرار */
+.print-button {
+    margin: 20px; /* المسافة حول الزر */
+    padding: 10px 20px; /* حشوة الزر */
+    font-size: 16px; /* حجم الخط */
+    background-color: #007bff; /* لون الخلفية */
+    color: white; /* لون النص */
+    border: none; /* إزالة الحدود */
+    border-radius: 5px; /* تحديد الزوايا */
+    cursor: pointer; /* تغيير المؤشر عند المرور فوق الزر */
+}
+
+.print-button:hover {
+    background-color: #0056b3; /* لون الخلفية عند التمرير فوق الزر */
+}
+
+/* أنماط العناصر المحددة */
+.moe {
+    width: 36%; /* عرض العنصر */
+  /*  height: 200px; /* ارتفاع العنصر */
+   /* margin: auto; /* توسيط العنصر */  
+}
+
+.school {
+  /*  width: 25%; /* عرض العنصر */
+  /*  height: 200px; /* ارتفاع العنصر */
+    position: absolute; /* تحديد موضع العنصر */
+    left: 0; /* المسافة من اليسار */
+    top: 0; /* المسافة من الأعلى */  
+}
+
+.input-group {
+    margin: 20px; /* المسافة حول مجموعة الإدخال */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right;
+}
+
+th {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.print-button {
+    margin-top: 10px;
+}
+
+#h4 {
+width: 100%;
+}
+
+#teat {
+    width: 50% ; /* عرض العنصر */
+    position: absolute ; /* تحديد موضع العنصر */
+    right: 0; /* المسافة من اليسار */
+}
+
+#prince {
+    width: 50% ; /* عرض العنصر */
+    position: absolute ; /* تحديد موضع العنصر */
+    left: 0; /* المسافة من اليسار */
+}

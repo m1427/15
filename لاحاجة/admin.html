@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>مختبر الكيمياء</title>
+</head>
+
+<body>  
+    <table>
+        <tr>
+            <th>اسم المعلم</th>
+            <th>المنهج</th>
+            <th>التاريخ</th>
+            <th>الحصة</th>
+            <th>اسم التجربة</th>
+        </tr>
+        <?php
+        $conn = mysqli_connect("localhost", "nnaame", "", "alkma");
+                        
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+                        
+        $sql = "SELECT teatchername, sub, date, cl, experimentName FROM alkma";
+        $result = $conn->query($sql);
+                        
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["teatchername"] . "</td><td>" . $row["sub"] . "</td><td>" . $row["date"] . "</td><td>" . $row["cl"] . "</td><td>" . $row["experimentName"] . "</td></tr>";
+            }
+        } else {
+            echo "<tr><td colspan='5'>0 نتائج</td></tr>";
+        }
+        
+        $conn->close();
+        ?>            
+    </table>
+</body>
+
+</html>

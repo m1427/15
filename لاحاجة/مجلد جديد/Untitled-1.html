@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <title>مختبر الكيمياء</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: right;
+            background: url('king khalid.JPG') no-repeat center center fixed;
+            background-size: cover;
+            color: rgb(17, 16, 16);
+        }
+
+        input {
+            width: 50%;
+            height: 40px;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="date"] {
+            width: 17%;
+            height: 20px;
+        }
+        #day1 { 
+          width: 17%;
+            height: 20px;
+         }
+         #time1 { 
+          width: 17%;
+            height: 20px;
+         }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>موقع احجز لي</h1>
+        <p>الإصدار التجريبي</p>
+    </header>
+    <main>
+        <h2> شكراً للدخولك لمعمل الكيمياء</h2>
+        <label for="teacher name"> </label></br>
+        اسم المعلم<select name="teatcher name">
+           <option value="اختر ">اختر </option>
+                <option value="عويضة العرجاني">عويضة العرجاني</option>
+                <option value="حسين غواص">حسين غواص</option>
+                <option value="عماد العبدالواحد">عماد العبدالواحد</option>
+                <option value="احمد العبداللطيف">احمد العبداللطيف</option>
+                <option value="خالد المسعود">خالد المسعود</option>
+         </select></br></br></br>
+            <label for="alkma">المنهج</label>
+         <select name="alkma">
+          <option value="اختر ">اختر </option>
+                <option value="عويضة العرجاني">عويضة العرجاني</option>
+                <option value="حسين غواص">حسين غواص</option>
+                <option value="عماد العبدالواحد">عماد العبدالواحد</option>
+                <option value="احمد العبداللطيف">احمد العبداللطيف</option>
+                <option value="خالد المسعود">خالد المسعود</option>
+            </select>
+        <p>حدد موعد حصتك</p>
+        <form action="#">
+          <label for="Date">التاريخ </label>
+          <input type="date">
+            <label for="day">اليوم</label>
+            <select id="day1" name="day">
+                <option value="الأحد">الأحد</option>
+                <option value="الاثنين">الاثنين</option>
+                <option value="الثلاثاء">الثلاثاء</option>
+                <option value="الأربعاء">الأربعاء</option>
+                <option value="الخميس">الخميس</option>
+            </select>
+            <label for="time">الحصة</label>
+            <select id="time1" name="time">
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select><br>
+            <p> اسم التجربة</p>
+            <input type="text">
+            <p>ادوات التجربة</p>
+            <label for="numberOfBoxes">عدد الادوات:</label>
+    <select id="numberOfBoxes" onchange="updateInputBoxes()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+
+    <div id="inputContainer">
+        <input type="text"  class="dynamicInput">
+    </div>
+
+    <script>
+      function updateInputBoxes() {
+          var numberOfBoxes = document.getElementById('numberOfBoxes').value;
+          var container = document.getElementById('inputContainer');
+  
+          // Clear existing inputs
+          container.innerHTML = '';
+  
+          // Create new inputs based on the selected number
+          for (var i = 0; i < numberOfBoxes; i++) {
+              var newInput = document.createElement('input');
+              newInput.type = 'text';
+              newInput.classList.add('dynamicInput');
+              container.appendChild(newInput);
+  
+              // Add a line break after each new input
+              container.appendChild(document.createElement('br'));
+          }
+      }
+      </script>
+  </form>
+    </main>
+    <footer>
+        <p>ثانوية الملك خالد</p>
+    </footer>
+    <button onclick="showNotification()">احجز</button>
+    <script>
+      function showNotification() {
+          var selecteddate = document.getElementById('date').value;
+          Swal.fire({
+              title: 'تم الحجز!',
+              text: 'تم حجز حصتك يوم ' + selecteddate ,
+              icon: 'success',
+              confirmButtonText: 'موافق'
+          });
+      }
+  </script>
+</body>
+</html>

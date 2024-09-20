@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <title>مختبر الأحياء</title>
+    <link rel="stylesheet" href="CSS/pioy.style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header>
+        <h1>موقع احجز لي</h1>
+        <p>الإصدار التجريبي</p>
+    </header>
+    <main>
+        <h2> شكراً للدخولك لمعمل الأحياء</h2>
+        <label for="teacher name"> </label><br>
+        اسم المعلم
+        <select name="teacher_name" required>
+            <option value="" disabled selected>اختر</option>
+            <option value="محمد المحيبس">محمد المحيبس</option>
+            <option value="احمد الموسى">احمد الموسى</option>
+            <option value="احمد البخيتان">احمد البخيتان</option>
+            <option value="طارق المالكي">طارق المالكي</option>
+        </select><span class="required">*</span><br><br><br>
+        <label for="alkma">المنهج</label>
+        <select name="alkma" required>
+            <option value="" disabled selected>اختر</option>
+            <option value="biology 1">أحياء 1</option>
+            <option value="biology 2-1">أحياء 1-2</option>
+            <option value="biology 2-2">أحياء 2-2</option>
+            <option value="biology 2-3">أحياء 3-2</option>
+        </select><span class="required">*</span><br><br>
+        <p>حدد موعد حصتك</p>
+        <form action="#" onsubmit="return validateForm()">
+            <label for="date">التاريخ <span class="required">*</span></label>
+            <input type="date" id="date" required>
+            <label for="day">اليوم <span class="required">*</span></label>
+            <select id="day1" name="day" required>
+                <option value="" disabled selected>اختر</option>
+                <option value="الأحد">الأحد</option>
+                <option value="الاثنين">الاثنين</option>
+                <option value="الثلاثاء">الثلاثاء</option>
+                <option value="الأربعاء">الأربعاء</option>
+                <option value="الخميس">الخميس</option>
+            </select><span class="required">*</span>
+            <label for="time">الحصة <span class="required">*</span></label>
+            <select id="time1" name="time" required>
+                <option value="" disabled selected>اختر</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="8">6</option>
+                <option value="7">7</option>
+            </select><span class="required">*</span><br>
+            <p>اسم التجربة <span class="required">*</span></p>
+            <input type="text" id="experimentName" required>
+            <p>أدوات التجربة</p>
+            <label for="numberOfBoxes">عدد الأدوات: <span class="required">*</span></label>
+            <select id="numberOfBoxes" required>
+                <option value="" disabled selected></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select><span class="required">*</span>
+
+            <div id="inputContainer">
+                <input type="text" class="dynamicInput" id="tool1" required>
+            </div>
+
+            <p class="error-message" id="errorMessage"></p>
+
+            <script>
+                function validateForm() {
+                    var requiredFields = document.querySelectorAll('[required]');
+                    var valid = true;
+
+                    requiredFields.forEach(function (field) {
+                        if (!field.value.trim()) {
+                            field.classList.add('error');
+                            valid = false;
+                        } else {
+                            field.classList.remove('error');
+                            field.classList.add('success');
+                        }
+                    });
+
+                    if (!valid) {
+                        document.getElementById('errorMessage').innerText = 'الرجاء ملء جميع الحقول المطلوبة.';
+                    } else {
+                        document.getElementById('errorMessage').innerText = '';
+                    }
+
+                    return valid;
+                }
+
+                function updateInputBoxes() {
+                    var numberOfBoxes = document.getElementById('numberOfBoxes').value;
+                    var container = document.getElementById('inputContainer');
+
+                    // Clear existing inputs
+                    container.innerHTML = '';
+
+                    // Create new inputs based on the selected number
+                    for (var i = 0; i < numberOfBoxes; i++) {
+                        var newInput = document.createElement('input');
+                        newInput.type = 'text';
+                        newInput.className = 'dynamicInput';
+                        newInput.placeholder = 'أداة ' + (i + 1);
+                        container.appendChild(newInput);
+                    }
+                }
+
+                document.getElementById('numberOfBoxes').addEventListener('change', updateInputBoxes);
+            </script>
+            <br>
+            <input type="submit" value="احجز">
+        </form>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+.p124 {
+   position: relative;
+   top: 2cm;
+   align-items: right;
+   text-align: right;
+   box-sizing: border-box;
+}
+
+.p124 img {
+   width: 3cm;
+   height:7cm;
+   border-radius: 50%;
+}
+
+/*.p125 {
+   position: relative;
+   top: 2cm;
+   align-items: right;
+   text-align: right;
+   box-sizing: border-box;
+}
+
+.p125 img {
+   width: 7.5cm;
+   height: 7.5cm;
+   border-radius: 50%;
+}
+
+.p126 {
+   position: relative;
+   top: 2cm;
+   align-items: right;
+   text-align: right;
+   box-sizing: border-box;
+}
+
+.p126 img {
+   width: 7.5cm;
+   height: 7.5cm;
+   border-radius: 50%;
+}

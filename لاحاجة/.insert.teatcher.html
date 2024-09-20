@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>حذف التجارب</title>
+    <link rel="stylesheet" href="CSS/admin.test.style.css">
+    <style>
+        /* أضف أي CSS إضافي هنا */
+    </style>
+</head>
+
+<body>
+    <form id="saveForm" method="POST" action="save_data.php">
+        <label for="teatchername"> اسم المعلم</label>
+        <input type="text" name="teatchername" id="teatchername" required>
+        <label for="sub">المقرر الدراسي</label>
+        <select id="sub" name="sub" required>
+            <option value="كيمياء">كيمياء</option>
+            <option value="فيزياء">فيزياء</option>
+            <option value="أحياء">أحياء</option>
+        </select>
+        <input type="submit" name="submit" id="submit-button" value="حفظ">
+    </form>
+
+    <form id="GetForm" method="get" action="Get_data.php">
+    <table id="experimentsTable">
+        <tr>
+            <th>اسم المعلم</th>
+            <th>المقرر الدراسي</th>
+            <th>حذف</th>
+        </tr>
+       
+    </table>
+
+    <script>
+        // التفاعل مع زر الحذف
+        document.querySelectorAll('.deleteButton').forEach(item => {
+            item.addEventListener('click', function() {
+                var id = this.getAttribute('data-id');
+                if (confirm('هل أنت متأكد أنك تريد حذف هذا السجل؟')) {
+                    // إرسال طلب حذف السجل إلى الخادم
+                    fetch('delete_record.php?id=' + id)
+                        .then(response => response.text())
+                        .then(data => {
+                            alert(data); // عرض أي رسالة نصية من الخادم
+                            // تحديث الجدول بعد الحذف
+                            fetch("update_table.php")
+                                .then(response => response.text())
+                                .then(html => {
+                                    document.getElementById("experimentsTable").innerHTML = html;
+                                });
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

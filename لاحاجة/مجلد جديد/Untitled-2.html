@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <title>مختبر الكيمياء </title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+        text-align: center;
+        background: url('king khalid.JPG') no-repeat center center fixed;
+        background-size: cover;
+        color: rgb(17, 16, 16);
+    }  
+    input {
+    width: auto;
+    box-sizing: border-box;
+    height: auto;
+    min-height: 20px;
+    max-width: 200px; /* تحديد العرض الأقصى */
+    max-height: 400px; /* تحديد الارتفاع الأقصى */
+}
+ 
+    </style>
+</head>
+<body>
+  <header>
+    <h1>برنامج احجز لي</h1>
+    <p>الإصدارالتجريبي</p>
+  </header>
+  <main>
+    <h2>شكراً للدخول أيها المعلم</h2>
+    <p>حدد موعد حصتك</p>
+    <form action="#">
+      <label for="day">اليوم</label>
+      <select name="day">
+        <option value="الأحد">الأحد</option>
+        <option value="الاثنين">الاثنين</option>
+        <option value="الثلاثاء">الثلاثاء</option>
+        <option value="الأربعاء">الأربعاء</option>
+        <option value="الخميس">الخميس</option>
+      </select>
+      <label for="time">الوقت</label>
+      <select name="time">
+        <option value="السابعة">السابعة</option>
+        <option value="السادسة">السادسة</option>
+        <option value="الخامسة">الخامسة</option>
+        <option value="الرابعة">الرابعة</option>
+        <option value="الثالثة">الثالثة</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select></br>
+      <p>اكتب اسم التجربة</p>
+      <input type="text" min="0" name="monday-sessions">
+      <p>دون الادوات المحتاجه لتنفيذ التجربة</p>
+      <input type="text" min="0" name="monday-sessions">
+    </form>
+  </main>
+  <footer>
+    <p>ثانوية الملك خالد</p>
+  </footer>
+  <button onclick="submitSchedule()">احجز</button>
+      <script>
+        function submitSchedule() {
+            var data = [];
+            var rows = document.querySelectorAll('table tr');
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].querySelectorAll('td input');
+                var rowData = [];
+                for (var j = 0; j < cells.length; j++) {
+                    rowData.push(cells[j].value);
+                }
+                data.push(rowData);
+            }
+
+            fetch('http://localhost:3000/submitSchedule', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(message => {
+                console.log(message);
+                alert("تم الحجز");
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+    <script>
+        const express = require('express');
+        const bodyParser = require('body-parser');
+
+        const app = express();
+        const port = 3000;
+
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: true }));
+
+        app.post('/submitSchedule', (req, res) => {
+            const scheduleData = req.body;
+            console.log('Received Schedule:', scheduleData);
+            res.send('Schedule received successfully.');
+        });
+
+        app.listen(port, () => {
+            console.log(`Server is running at http://localhost:${port}`);
+        });
+    </script>
+</body>
+</html>

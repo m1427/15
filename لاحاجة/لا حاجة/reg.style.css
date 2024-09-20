@@ -1,0 +1,38 @@
+body {
+    text-align: right;
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #1b1717;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    margin-top: 100px;
+}
+
+.login-box {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.login-box input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.login-box input[type="submit"]:hover {
+    background-color: #45a049;
+}

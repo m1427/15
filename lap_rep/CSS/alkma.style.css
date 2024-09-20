@@ -1,0 +1,47 @@
+#hdate {
+    width: auto;
+}
+
+input {
+    width: 50%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="date"],
+#day1,
+#time1,
+#numberOfBoxes {
+    width: 17%;
+    height: 20px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="date"]{
+    position: absolute;
+    right: auto;
+}
+
+
+input[type="submit"] {
+    width: 30%;
+    height: 30%;
+}
+
+span.required {
+    color: red;
+}
+
+.error-message {
+    color: red;
+}
+
+.success {
+    border-color: green;
+}
+
+.error {
+    border-color: red;
+}
