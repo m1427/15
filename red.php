@@ -1,5 +1,4 @@
 <?php
-echo: 123 ;
 $servername = "localhost";
 $username = "nnaame"; // أدخل اسم المستخدم لقاعدة البيانات
 $password = ""; // أدخل كلمة المرور
